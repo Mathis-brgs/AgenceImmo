@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PostsService } from '../../services/posts.service';
+import { Post } from '../../interfaces/post';
 
 @Component({
   selector: 'app-list-posts',
@@ -11,9 +12,12 @@ import { PostsService } from '../../services/posts.service';
 })
 export class ListPostsComponent {
   postsService = inject(PostsService);
-  postList: string[] = [];
+  postList: Post[] = [];
 
   constructor() {
-    this.postList = this.postsService.getPosts();
+    this.postsService.getPosts().then((posts: Post[]) => {
+      this.postList = posts;
+    });
+    // this.postList = this.postsService.getPosts();
   }
 }
