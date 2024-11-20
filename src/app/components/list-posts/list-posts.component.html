@@ -1,4 +1,6 @@
 <h2>List posts</h2>
+<a role="button" [routerLink]="['/posts/new']">Nouveau post</a>
+
 <ul>
   <article *ngFor="let post of postList">
     {{ post.title }}

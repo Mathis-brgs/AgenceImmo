@@ -2,11 +2,12 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PostsService } from '../../services/posts.service';
 import { Post } from '../../interfaces/post';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-list-posts',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './list-posts.component.html',
   styleUrl: './list-posts.component.scss',
 })
