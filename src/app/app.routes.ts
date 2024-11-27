@@ -3,7 +3,6 @@ import { ListPostsComponent } from './components/list-posts/list-posts.component
 import { ListTodosComponent } from './components/list-todos/list-todos.component';
 import { HomeComponent } from './components/home/home.component';
 import { SinglePostComponent } from './components/single-post/single-post.component';
-import { NewPostsComponent } from './components/new-posts/new-posts.component';
 
 export const routes: Routes = [
   {
@@ -17,9 +16,9 @@ export const routes: Routes = [
     title: 'List post page',
   },
   {
-    path: 'posts/new',
-    component: NewPostsComponent,
-    title: 'New List',
+    path: 'posts/:postId/detail',
+    component: SinglePostComponent,
+    title: 'Detail Post',
   },
   {
     path: 'todos',
@@ -29,6 +28,6 @@ export const routes: Routes = [
   {
     path: 'post/:id',
     component: SinglePostComponent,
-    title: 'Post number',
+    title: 'Post Detail',
   },
 ];

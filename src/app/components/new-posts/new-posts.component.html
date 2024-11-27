@@ -1,1 +1,17 @@
-<p>new-posts works!</p>
+<h2>Nouveau post</h2>
+<article>
+  <section class="new-post">
+    <h2 class="new-post-heading">Enter a new post</h2>
+    <form [formGroup]="applyForm" (submit)="submitApplication()">
+      <label for="post-id">Post ID</label>
+      <input id="post-id" type="number" formControlName="postID" />
+      <label for="post-title">Post Title</label>
+      <input id="post-title" type="text" formControlName="postTitle" />
+      <label for="post-body">Post Body</label>
+      <input id="post-body" type="text" formControlName="postBody" />
+      <label for="post-userId">user ID</label>
+      <input id="post-userId" type="number" formControlName="postUserID" />
+      <button type="submit" class="primary">Create now</button>
+    </form>
+  </section>
+</article>

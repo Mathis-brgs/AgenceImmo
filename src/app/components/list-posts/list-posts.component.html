@@ -4,5 +4,6 @@
 <ul>
   <article *ngFor="let post of postList">
     {{ post.title }}
+    <a [routerLink]="['/posts/' + post.id + '/detail']">Voir détail</a>
   </article>
 </ul>
