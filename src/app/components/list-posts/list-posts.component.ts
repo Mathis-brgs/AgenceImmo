@@ -13,12 +13,23 @@ import { RouterModule } from '@angular/router';
 })
 export class ListPostsComponent {
   postsService = inject(PostsService);
-  postList: Post[] = [];
+  postsList: Post[] = [];
+  filteredPostsList: Post[] = [];
 
   constructor() {
     this.postsService.getPosts().then((posts: Post[]) => {
-      this.postList = posts;
+      this.postsList = posts;
+      this.filteredPostsList = posts;
     });
-    // this.postList = this.postsService.getPosts();
+  }
+
+  filterResults(text: string) {
+    if (!text) {
+      this.filteredPostsList = this.postsList;
+    } else {
+      this.filteredPostsList = this.postsList.filter((post) =>
+        post.title?.toLowerCase().includes(text.toLowerCase())
+      );
+    }
   }
 }

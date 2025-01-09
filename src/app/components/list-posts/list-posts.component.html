@@ -1,9 +1,21 @@
-<h2>List posts</h2>
+<h2>List todos</h2>
 <a role="button" [routerLink]="['/posts/new']">Nouveau post</a>
 
+<section>
+  <form>
+    <input
+      type="text"
+      placeholder="Filter by Todo"
+      (input)="filterResults($any($event.target).value)"
+    />
+  </form>
+</section>
+
 <ul>
-  <article *ngFor="let post of postList">
-    {{ post.title }}
-    <a [routerLink]="['/posts/' + post.id + '/detail']">Voir détail</a>
+  <article *ngFor="let post of filteredPostsList">
+    <p>{{ post.title }}</p>
+    <a *ngIf="post?.id" [routerLink]="['/posts', post.id, 'detail']"
+      >Voir détail</a
+    >
   </article>
 </ul>
